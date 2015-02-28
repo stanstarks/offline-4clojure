@@ -6,8 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (map #(Integer/parseInt (str %)) (str (* a b)))))
 
 (defn -main []
   (are [soln] soln

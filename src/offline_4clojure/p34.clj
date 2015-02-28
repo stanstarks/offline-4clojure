@@ -6,8 +6,13 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-range [s e]
+    (if (= s e)
+      '()
+      (cons s (my-range (inc s) e))))
+
+  ; (take-while #(< % e) (iterate inc s))
+  )
 
 (defn -main []
   (are [soln] soln

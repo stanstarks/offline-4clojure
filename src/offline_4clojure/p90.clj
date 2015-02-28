@@ -6,8 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (set (for [x a y b] (vector x y)))))
 
 (defn -main []
   (are [soln] soln

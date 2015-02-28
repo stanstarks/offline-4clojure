@@ -6,9 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+;; Probably not solvable.
 )
-
 (defn -main []
   (are [soln] soln
 (= (list __) '(:a :b :c))

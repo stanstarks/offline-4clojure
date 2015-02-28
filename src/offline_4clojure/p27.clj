@@ -7,8 +7,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(= (reverse %)
+      (seq %)))
 
 (defn -main []
   (are [soln] soln

@@ -6,8 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [x]
+    (reverse (reduce #(if (= %2 (first (first %1)))
+                        (conj (rest %1) (conj (first %1) %2))
+                        (conj %1 (list %2)))
+                     (list (list (first x))) (rest x)))))
 
 (defn -main []
   (are [soln] soln

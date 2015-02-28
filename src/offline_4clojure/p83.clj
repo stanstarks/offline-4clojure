@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(true? (and (or %&) (not (and %&)))))
 
 (defn -main []
   (are [soln] soln

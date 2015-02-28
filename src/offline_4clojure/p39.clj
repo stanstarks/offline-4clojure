@@ -6,8 +6,19 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-interleave [a b]
+    (if-not (or (empty? a)
+                (empty? b))
+      (cons (first a) (cons (first b) (my-interleave (rest a)
+                                                     (rest b))))
+      '()))
+  ; use lazy-seq
+  ; (if (and (seq a) (seq b))
+  ;   (let [[ha & ta] a
+  ;         [hb & tb] b] (list* ha hb (my-interleave ta tb))))
+  )
+
+;; or use loop-recur
 
 (defn -main []
   (are [soln] soln

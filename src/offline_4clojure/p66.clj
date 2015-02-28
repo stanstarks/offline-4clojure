@@ -7,8 +7,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [a b]
+    (if (zero? b)
+      a
+      (recur b (mod a b)))))
 
 (defn -main []
   (are [soln] soln

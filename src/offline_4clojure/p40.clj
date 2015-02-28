@@ -6,8 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [c s]
+    (reduce #(conj (conj %1 c) %2) [(first s)] (rest s))))
+
+; #(rest (interleave (cycle [%1}) %2)
+; (fn [x s] (butlast (mapcat #(list % x) s)))
 
 (defn -main []
   (are [soln] soln

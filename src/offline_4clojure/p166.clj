@@ -12,8 +12,12 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [f x y]
+    (if (f x y)
+      :lt
+      (if (f y x)
+        :gt
+        :eq))))
 
 (defn -main []
   (are [soln] soln

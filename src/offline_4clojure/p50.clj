@@ -6,8 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(for [[k v] (group-by class %)] v))
+
+(defn tth [s]
+  (vals (group-by type s)))
 
 (defn -main []
   (are [soln] soln

@@ -6,8 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [s n]
+    (reduce #(concat %1 (repeat n %2)) '() s)))
+
+; #(mapcat (partial repeat %2) %1) 
 
 (defn -main []
   (are [soln] soln

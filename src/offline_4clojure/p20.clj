@@ -6,8 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [seq]
+    (nth seq (-
+              (count seq)
+              2))))
 
 (defn -main []
   (are [soln] soln

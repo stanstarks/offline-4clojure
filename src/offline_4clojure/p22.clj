@@ -6,8 +6,12 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-count [seq]
+    (if (empty? seq)
+      0
+      (inc (my-count (rest seq)))))
+  ; (reduce + (map (constantly 1) s))
+  )
 
 (defn -main []
   (are [soln] soln

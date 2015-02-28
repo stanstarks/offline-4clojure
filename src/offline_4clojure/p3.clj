@@ -7,6 +7,7 @@
 
 (def __
 ;; your solution here
+  "HELLO WORLD"
 )
 
 (defn -main []

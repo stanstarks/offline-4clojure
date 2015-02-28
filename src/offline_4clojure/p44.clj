@@ -6,8 +6,18 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [n s]
+    (let [len (count s)]
+      (if (< n 0)
+        (recur (+ n len) s)
+        (if (> n len)
+          (recur (- n len) s)
+          (concat (drop n s) (take n s)))))))
+
+(defn thattommyhall [n l]
+  (let [c (count l)
+        d (mod n c)]
+    (take c (drop d (cycle l)))))
 
 (defn -main []
   (are [soln] soln

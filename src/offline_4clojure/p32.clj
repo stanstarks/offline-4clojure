@@ -6,8 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn dup [s]
+    (if (empty? s)
+      '()
+      (cons (first s)
+            (cons (first s) (dup (rest s)))))))
 
 (defn -main []
   (are [soln] soln

@@ -6,7 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  #(Integer/parseInt % 2)
 )
 
 (defn -main []

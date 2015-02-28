@@ -6,8 +6,7 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(list (take %1 %2) (drop %1 %2)))
 
 (defn -main []
   (are [soln] soln

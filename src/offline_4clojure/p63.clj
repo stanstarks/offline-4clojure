@@ -6,8 +6,30 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [f v]
+    (into {} (map #(vector (f (first %)) (vec %))
+                  (partition-by f (sort v))))))
+
+; thattommyhall
+(fn [f s]
+  (apply merge-with concat
+         (map #(hash-map (f %) (vector %)) s)))
+
+; austintaylor
+(fn [f s]
+  (reduce (fn [m a]
+            (let [x (f a)]
+              (assoc m x (conj (get m x []) a)))) {} s))
+
+; astangl's solution
+(fn [f s]
+  (letfn [(add-to [m k v] (assoc m k (conj (m k []) v)))]
+    (reduce #(add-to %1 (f %2) %2) {} s)))
+
+; alex
+(fn [f s]
+  (zipmap (distinct (map #(f %) s))
+          (for [x (distinct (map #(f %)))])))
 
 (defn -main []
   (are [soln] soln

@@ -6,8 +6,13 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-max
+    ([x] x)
+    ([x y] (if (> x y) x y))
+    ([x y & more] (reduce my-max (my-max x y) more)))
+  
+  ; (fn [& xs] (reduce #(if (> %2 %1) %2 %1) xs))
+  )
 
 (defn -main []
   (are [soln] soln

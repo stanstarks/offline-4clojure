@@ -6,8 +6,13 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-flatten [coll]
+    (if (sequential? coll)
+      (mapcat my-flatten coll)
+      (list coll)))
+  ; (filter (complement sequential?)
+  ;         (rest (tree-seq sequential? seq x)))
+  )
 
 (defn -main []
   (are [soln] soln

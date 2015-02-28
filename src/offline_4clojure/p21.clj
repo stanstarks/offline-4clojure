@@ -6,8 +6,12 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn my-nth [seq n]
+    (if (zero? n)
+      (first seq)
+      (my-nth (next seq) (dec n))))
+  ; (first (drop n seq))
+  )
 
 (defn -main []
   (are [soln] soln

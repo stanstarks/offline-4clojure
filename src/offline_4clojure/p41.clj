@@ -6,8 +6,18 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [s n]
+    (let [drp-help (fn drp [x m res]
+                     (if (empty? x)
+                       res
+                       (if (= m 1)
+                         (drp (rest x) n res)
+                         (drp (rest x) (- m 1) (conj res (first x))))))]
+      (drp-help s n []))))
+
+; (mapcat #(if (= n (count %1)) (drop-last %1) %1) (partition-all n
+; seqn))
+
 
 (defn -main []
   (are [soln] soln

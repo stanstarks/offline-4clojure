@@ -8,8 +8,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [x]
+    #(reduce * (repeat x %))))
+
+; thattommyhall Math/pow
 
 (defn -main []
   (are [soln] soln

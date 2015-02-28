@@ -6,8 +6,14 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(apply map vector (partition %2 %1)))
+
+; thattommyhall
+(fn [s n]
+  (map #(take-nth n %) (take n (iterate rest s))))
+
+; alex
+#(for [x (range %2)] (take-nth %2 (drop x %1)))
 
 (defn -main []
   (are [soln] soln

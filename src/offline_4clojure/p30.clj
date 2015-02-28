@@ -6,8 +6,18 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  (fn [ss]
+    (let [compress (fn my-compress [s res]
+                     (if (empty? s)
+                       res
+                       (if (= (first s) (first res))
+                         (my-compress (rest s) res)
+                         (my-compress (rest s) (conj res (first s))))))]
+      (reverse (compress ss '())))))
+
+; (fn [a] (map first (partition-by identity a)))
+; (fn cmprs [x] (reverse (reduce #(if (~ %2 (first %1 (conj %1 &2))
+; `() x))
 
 (defn -main []
   (are [soln] soln

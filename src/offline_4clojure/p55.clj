@@ -6,8 +6,18 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  ;; your solution here
+  (fn [xs]
+    (reduce (fn [a v]
+              (assoc a v (inc (get a v 0))))
+            {} (vec xs)))
+  )
+
+;; thattommyhall
+(fn [xs]
+  (reduce merge
+          (for [[element element-list] (group-by identity s)]
+            {element (count element-list)})))
 
 (defn -main []
   (are [soln] soln

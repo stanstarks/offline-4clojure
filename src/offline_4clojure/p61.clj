@@ -6,8 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(apply assoc {}
+          (interleave %1 %2)))
 
 (defn -main []
   (are [soln] soln

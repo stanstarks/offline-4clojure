@@ -6,8 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  #(zipmap %2 (repeat %1)))
+
+; (fn [x s] (reduce #(assoc %1 %2 x) {} s))
+; #(into {} (for [x %2] [x %1]))
 
 (defn -main []
   (are [soln] soln
