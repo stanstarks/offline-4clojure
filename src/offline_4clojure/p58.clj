@@ -6,8 +6,21 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  ;; your solution here
+  (fn
+    ([f g]
+       (fn [x] (f (g x))))
+    ([f g h]
+       (fn
+         ([x] (f (g (h x))))
+         ([x y] (f (g (h x y))))
+         ([x y z a] (f (g (h x y z a)))))))
+  )
+
+;; austintaylor
+(fn [& fs]
+  (fn [& xs]
+    (first (reduce #(vector (apply %2 %1)) xs (reverse fs)))))
 
 (defn -main []
   (are [soln] soln

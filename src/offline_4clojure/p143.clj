@@ -6,7 +6,8 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  #(reduce + (map * %1 %2))
 )
 
 (defn -main []

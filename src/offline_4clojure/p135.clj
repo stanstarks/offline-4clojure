@@ -8,7 +8,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn [x & xs]
+    (reduce (fn [r1 [t r2]] (t r1 r2))
+            x (partition 2 xs)))
 )
 
 (defn -main []

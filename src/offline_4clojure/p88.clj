@@ -6,7 +6,9 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  #(set (concat (apply disj %1 %2)
+                (apply disj %2 %1)))
 )
 
 (defn -main []

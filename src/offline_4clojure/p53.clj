@@ -6,8 +6,33 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  ;; your solution here
+  (fn f ([s]
+           (f s [] []))
+    ([s res tmp]
+       (let [size_t (count tmp)
+             size_r (count res)
+             item (first s)
+             others (rest s)]
+         (cond (empty? s) (if (> size_t size_r 1) tmp res)
+               (empty? tmp) (recur others res [item])
+               (> item (last tmp)) (recur others res (conj tmp item))
+               (< size_t 2) (recur others res [item])
+               (< size_r size_t) (recur others tmp [item])
+               :else (recur others res [item])))))
+  )
+
+; austintaylor
+(fn [s]
+  (let [subseqs (filter
+                 #(not= 1 (count %))
+                 (mapcat
+                  (partial reductions conj [])
+                  (tree-seq
+                   (complement empty?)
+                   (comp list rest) s)))
+        inc? #(or (empty? %) (= % (range (first %) (inc (last %)))))]
+    (last (sort-by count (filter inc? subseqs)))))
 
 (defn -main []
   (are [soln] soln

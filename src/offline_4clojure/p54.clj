@@ -6,7 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn my-partition [n coll]
+    (let [p (take n coll)]
+      (when (= n (count p))
+        (cons p (my-partition n (nthrest coll n))))))
 )
 
 (defn -main []
