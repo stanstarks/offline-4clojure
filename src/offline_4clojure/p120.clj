@@ -6,7 +6,11 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn [s]
+    (let [ds (fn [n] (map #(Integer. (str %)) (str n)))
+          sum (fn [n] (apply + (map #(* % %) (ds n))))]
+      (count (filter #(> (sum %) %) s))))
 )
 
 (defn -main []

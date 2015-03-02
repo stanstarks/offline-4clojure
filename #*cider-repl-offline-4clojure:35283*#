@@ -1,0 +1,59 @@
+; CIDER 0.8.0snapshot (package: 20141119.748) (Java 1.8.0_31, Clojure 1.4.0, nREPL 0.2.6)
+offline-4clojure.core> (map #(Integer. (apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (str 10)
+"10"
+offline-4clojure.core> (Integer. "1")
+1
+offline-4clojure.core> (map #(Integer. '(apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (list "10")
+("10")
+offline-4clojure.core> (map #(Integer/valueOf '(apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer/valueOf (apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer/valueOf (apply str %)) (String/valueOf 10))
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Character  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer/valueOf (str %)) (String/valueOf 10))
+(1 0)
+offline-4clojure.core> (map #(Integer. (str %)) (String/valueOf 10))
+(1 0)
+offline-4clojure.core> (map #(Integer. (str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer. (str %)) (String. 10))
+IllegalArgumentException No matching ctor found for class java.lang.String  clojure.lang.Reflector.invokeConstructor (Reflector.java:183)
+offline-4clojure.core> (count (nil nil :a))
+CompilerException java.lang.IllegalArgumentException: Can't call nil, compiling:(/tmp/form-init5434363286380514626.clj:1) 
+offline-4clojure.core> (count '(nil nil :a))
+3
+offline-4clojure.core> (count '(nil nil :a))
+3
+offline-4clojure.core> (seq? ())
+true
+offline-4clojure.core> (seq? 1)
+false
+offline-4clojure.core> (count '(:a nil ()))
+3
+offline-4clojure.core> (let [[a b c] '(1 2)] a)
+1
+offline-4clojure.core> (nil? false)
+false
+offline-4clojure.core> (__ [4 false nil])
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: __ in this context, compiling:(/tmp/form-init5434363286380514626.clj:1) 
+UnsupportedOperationException nth not supported on this type: Boolean  clojure.lang.RT.nthFrom (RT.java:846)
+UnsupportedOperationException nth not supported on this type: Boolean  clojure.lang.RT.nthFrom (RT.java:846)
+UnsupportedOperationException nth not supported on this type: Boolean  clojure.lang.RT.nthFrom (RT.java:846)
+offline-4clojure.core> (seq? false)
+false
+offline-4clojure.core> (count flase)
+CompilerException java.lang.RuntimeException: Unable to resolve symbol: flase in this context, compiling:(/tmp/form-init5434363286380514626.clj:1) 
+offline-4clojure.core> (count false)
+UnsupportedOperationException count not supported on this type: Boolean  clojure.lang.RT.countFrom (RT.java:545)
+offline-4clojure.core> (count [4 nil nil])
+3
+offline-4clojure.core> (seq? [4 nil nil])
+false
+offline-4clojure.core> (seq? '(4 nil nil))
+true
+offline-4clojure.core> 

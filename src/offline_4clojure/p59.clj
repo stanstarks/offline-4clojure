@@ -6,7 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn [& fs]
+    (fn [& xs]
+      (map #(apply % xs) fs)))
 )
 
 (defn -main []

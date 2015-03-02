@@ -6,8 +6,12 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  ;; your solution here
+  #(reverse (zipmap % (range)))
+  )
+
+;; austintaylor
+#(map list % (range))
 
 (defn -main []
   (are [soln] soln

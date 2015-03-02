@@ -9,8 +9,20 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
-)
+  ;; your solution here
+  (fn pascal [n]
+    (if (= 1 n) [1]
+        (let [pre (pascal (- n 1))]
+          (vec (map + (into [0] pre)
+                    (conj pre 0))))))
+  )
+
+;; austintaylor (binomial coefficient
+(fn [r]
+  (reduce #(cons
+            (* (first %1)
+               (/ (- r %2) %2))
+            %1) [1] (range 1 r)))
 
 (defn -main []
   (are [soln] soln

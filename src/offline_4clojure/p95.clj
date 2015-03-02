@@ -6,8 +6,21 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn tree? [s]
+    (if (nil? s) true
+        (if (sequential? s)
+          (let [[p l r] s]
+            (if (not= 3 (count s)) false
+                (and (tree? l) (tree? r))))
+          false)))
 )
+
+(__ [4 false nil])
+
+(__ [4 nil nil])
+
+(__ nil)
 
 (defn -main []
   (are [soln] soln

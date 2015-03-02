@@ -1,0 +1,16 @@
+; CIDER 0.8.0snapshot (package: 20141119.748) (Java 1.8.0_31, Clojure 1.4.0, nREPL 0.2.6)
+offline-4clojure.core> (map #(Integer. (apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (str 10)
+"10"
+offline-4clojure.core> (Integer. "1")
+1
+offline-4clojure.core> (map #(Integer. '(apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (list "10")
+("10")
+offline-4clojure.core> (map #(Integer/valueOf '(apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer/valueOf (apply str %)) 10)
+IllegalArgumentException Don't know how to create ISeq from: java.lang.Long  clojure.lang.RT.seqFrom (RT.java:494)
+offline-4clojure.core> (map #(Integer/valueOf (apply str %)) (String/valueOf 10))

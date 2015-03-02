@@ -6,7 +6,10 @@
   (:use clojure.test))
 
 (def __
-;; your solution here
+  ;; your solution here
+  (fn m [f [h & r]]
+    (lazy-seq (cons (f h)
+                    (if r (m f r)))))
 )
 
 (defn -main []
